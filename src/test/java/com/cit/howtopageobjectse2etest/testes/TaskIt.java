@@ -18,14 +18,20 @@ public class TaskIt {
     }
 
     @Test
-    public void addMaisInformacoes () {
+    public void addMaisInformacoes () throws Exception {
         this.navegador.get("http://www.juliodelima.com.br/taskit");
 
         String textoToast = new LoginPage(navegador)
                 .clicarSignIn()
                 .digitarLogin("julio0001")
                 .digitarSenha("123456")
-                .clicarSignIn();
+                .clicarSignIn()
+                .clicarLinkMe()
+                .clicarAbaMoreData()
+                .clicarAddMoreData()
+                .digitarComboBox("phone")
+                .digitarTelefone("5511999999999")
+                .clicarSalvar();
 
         Assert.assertEquals("Your contact has been added!", textoToast);
     }

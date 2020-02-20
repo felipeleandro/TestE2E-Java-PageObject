@@ -9,7 +9,8 @@ public class LoginPage extends BasePage {
         super(navegador);
     }
 
-    public LoginFormPage clicarSignIn() {
+    public LoginFormPage clicarSignIn() throws Exception {
+        Thread.sleep(500);
         navegador.findElement(By.linkText("Sign in")).click();
 
         return new LoginFormPage(navegador);
